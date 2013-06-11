@@ -2,11 +2,14 @@ require.config({
 	paths: {
 		jquery: 'lib/jquery/jquery',
 		angular: 'lib/angular/angular',
-		text: 'lib/require/text'
+                angularui: 'lib/angular/angular-ui-router.min',
+		text: 'lib/require/text',
+                bootstrap: 'lib/bootstrap/bootstrap.min'
 	},
-	baseUrl: '/app/js',
+	baseUrl: '/angular-requirejs-seed/app/js',
 	shim: {
 		'angular' : {'exports' : 'angular'},
+                'angularui' : {'deps':['angular']},
 		'angularMocks': {deps:['angular'], 'exports':'angular.mock'}
 	},
 	priority: [
@@ -17,9 +20,10 @@ require.config({
 require( [
 	'jquery',
 	'angular',
+        'angularui',
 	'app',
 	'routes'
-], function($, angular, app, routes) {
+], function($, angular,angularui, app, routes) {
 	'use strict';
 	$(document).ready(function () {
 		var $html = $('html');

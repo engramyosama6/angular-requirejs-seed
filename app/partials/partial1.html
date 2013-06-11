@@ -1,4 +1,27 @@
-<p>This is the partial for view 1.</p>
-<p>
-	Getting version from the scope: {{ scopedAppVersion }}
-</p>
+<div id="user-login" class="row">
+    <div class="user-login-logo">
+        <img src="app/img/logo.png" />
+    </div>
+    <form class="form" ng-submit="controller.login($element)">
+        <div class="control-group">
+            <div class="controls">
+                <input type="text" id="inputEmail" placeholder="{{controller.username}}" required ng-model="controller.user.username">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="password" id="inputPassword" placeholder="{{controller.password}}" required ng-model="controller.user.password">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox"> Remember me
+                </label>
+                <div class="submit-loader">
+                    <input type="submit" id="submit-login" class="btn" value="Sign in">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

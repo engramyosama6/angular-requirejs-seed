@@ -1,9 +1,86 @@
-<p>This is the partial for view 2.</p>
-<p>
-	{{ welcomeMessage }}
-</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
-
+<div id="main-header">
+    <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+            <div id="nav-menu-items" class="container-fluid">
+                <div>
+                    <ul class="nav">
+                        <li id="shopbox-logo">
+                            <a href="#">
+                                <img src="app/img/logo.png" alt="" width="138" height="24">
+                            </a>
+                        </li>
+                        <li class="divider-vertical"></li>
+                        <li class="active">
+                            <a href="#" class="main-nav-link">
+                                <i class="icon-home icon-white"></i>
+                            </a>
+                        </li>
+                        <li class="divider-vertical"></li>
+                        <li class="" data-bindattr-68="68">
+                            <a href="#" class="main-nav-link">
+                                <i class="icon-cog icon-white"></i>
+                            </a>
+                        </li>
+                        <li class="divider-vertical"></li>
+                        <li id="redeem">
+                            <a href="#" class="main-nav-link">
+                                <i class="icon-qrcode icon-white"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clients">
+    <div class="left">
+        <span class="header">Deals<span>
+    </div>
+    <div class="right">
+        <div class="btn-group">
+            <button class="btn">Feet a fish</button>
+            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Feet a fish</a></li>
+                <li><a href="#">Feet a fish</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="main-body">
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Published</a></li>
+            <li><a href="#tab2" data-toggle="tab">Unpublished</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Share</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="deal in controller.deals">
+                            <td><img src="{{deal.images.small.path}}" /></td>
+                            <td>{{deal.title}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane" id="tab2">
+                <p>Howdy, I'm in Section 2.</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,29 @@
 define([], function() {
-	return ['$scope', '$http', function($scope, $http) {
-		// You can access the scope of the controller from here
-		$scope.welcomeMessage = 'hey this is myctrl2.js!';
-
-		// because this has happened asynchroneusly we've missed
-		// Angular's initial call to $apply after the controller has been loaded
-		// hence we need to explicityly call it at the end of our Controller constructor
-		$scope.$apply();
-	}];
+    return ['$scope','user', function($scope,user) {
+        $scope.controller = {
+            deals : null,
+            _construct : function(){
+                this.getActiveDeals();
+            },
+            getActiveDeals : function(){
+                var that = this;
+                $('main-body').append('<img src="app/img/ajax-loader.gif" class="loader" />');
+                console.log(user);
+                setTimeout(function(){
+                    $.get(user.defaultClient.links.deals.published)
+                    .success(function(data, status, headers, config){
+                        console.log(data);
+                        that.deals = data.deals;
+                        $('.loader').remove();
+                    })
+                    .error(function(data, status, headers, config){
+                        console.log('Failed to recieve response from the server.')
+                        $('.loader').remove();
+                    });
+                },5000)
+            }
+        }
+        $scope.controller._construct();
+        $scope.$apply();
+    }];
 });
